@@ -1,7 +1,14 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
 
+
 public class Main {
+    private static Logger logger;
     public static void main(String[] args) {
+        logger= LogManager.getRootLogger();
+
         String pathJson = "/Users/temior/IdeaProjects/BankAccount/src/main/java/resources/typeAccount.json";
         String pathXml = "/Users/temior/IdeaProjects/BankAccount/src/main/java/resources/curcod.xml";
         System.out.println("введите номер счета");
@@ -22,8 +29,9 @@ public class Main {
         System.out.println(vrfy.curAccountPath(accountNumber, pathXml));
         System.out.println("проверка принадлежности номера");
         System.out.println(vrfy.typeAccountPath(accountNumber, ParserType.getJsonFile(pathJson)));
-        System.out.println(KeyAlgoritm.keyVilid(accountNumber, bik));
-        if (KeyAlgoritm.keyVilid(accountNumber, bik).equals("Проверьте правильность ввода номера счета и БИК банка")) {
+        if (KeyAlgoritm.keyValid(accountNumber, bik)) System.out.println("Номер счета корректен");
+        else {
+            System.out.println("Проверьте правильность ввода номера счета и БИК банка");
             System.out.println("Корректный ключ для этого бик");
             System.out.println(KeyAlgoritm.validAccountNumber(accountNumber, bik));
         }

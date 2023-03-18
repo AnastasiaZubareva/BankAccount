@@ -20,15 +20,13 @@ public class KeyAlgoritmTest extends TestCase {
     @Test
     @Tag("keyVilid")
     public void testKeyVilid (){
-        String actual = KeyAlgoritm.keyVilid(numberValidKet,bik);
-        assertTrue(actual.contains("Счет корректен"));
+        assertTrue(KeyAlgoritm.keyValid(numberValidKet,bik));
     }
 
     @Test
     @Tag("keyVilid")
     public void testKeyVilidNo (){
-        String actual = KeyAlgoritm.keyVilid(numberNotValidKey,bik);
-        assertTrue(actual.contains("Проверьте правильность ввода номера счета и БИК банка"));
+        assertTrue(KeyAlgoritm.keyValid(numberNotValidKey,bik));
     }
 
     @Test

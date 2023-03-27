@@ -1,15 +1,17 @@
-import junit.framework.TestCase;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 
-public class KeyAlgoritmTest extends TestCase {
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class KeyAlgoritmTest {
 
     String numberValidKet;
     String numberNotValidKey;
     String bik;
 
-    @Override
+
     @BeforeAll
     protected void setUp() throws Exception {
         numberValidKet = "40602810700000000025";
@@ -19,21 +21,25 @@ public class KeyAlgoritmTest extends TestCase {
 
     @Test
     @Tag("keyVilid")
-    public void testKeyVilid (){
-        assertTrue(KeyAlgoritm.keyValid(numberValidKet,bik));
+    @DisplayName("Валидный ключ")
+    public void testIsKeyValid (){
+        assertTrue(KeyAlgoritm.isKeyValid(numberValidKet,bik));
     }
 
     @Test
     @Tag("keyVilid")
-    public void testKeyVilidNo (){
-        assertTrue(KeyAlgoritm.keyValid(numberNotValidKey,bik));
+    @DisplayName("Не валидный ключ")
+    public void testIsKeyNotValid (){
+        assertFalse(KeyAlgoritm.isKeyValid(numberNotValidKey,bik));
     }
 
     @Test
     @Tag("keyVilid")
-    public void testValidAccountNumber (){
-        String actual = KeyAlgoritm.validAccountNumber(numberNotValidKey,bik);
+    @DisplayName("Возвращение валидного номера")
+    public void testGetValidAccountNumber (){
+        String actual = KeyAlgoritm.getValidAccountNumber(numberNotValidKey,bik);
         assertTrue(actual.contains("40602810700000000025"));
     }
+
 
 }

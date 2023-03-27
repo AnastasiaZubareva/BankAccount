@@ -12,12 +12,18 @@ import org.w3c.dom.Document;
 public class Verification {
 
 
-    public static boolean validLength(String scanNumber) { //тут надо добавить проверку (и в тесты) что введены только цифры.
+    public static boolean isValidLength(String scanNumber) {
         if (scanNumber.isEmpty()) return false;
         else {
-            if (scanNumber.length() == 20) return true;
+            if (scanNumber.length() == 20 ) return true;
             else return false;
         }
+    }
+
+    public static boolean isValidSymbols(String scanNumber){
+       boolean result = scanNumber.matches("[0-9]+");
+       return result;
+
     }
 
     public static String typeAccountPath(String scanNumber, String getPathFile) {

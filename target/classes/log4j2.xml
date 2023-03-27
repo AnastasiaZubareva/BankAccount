@@ -12,8 +12,6 @@
     </appenders>
     <loggers>
 
-
-
         <root level="debug">
             <appender-ref ref="MyFile"/>
 

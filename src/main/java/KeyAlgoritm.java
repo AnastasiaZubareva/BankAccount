@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class KeyAlgoritm {
 
 
@@ -33,4 +35,21 @@ public class KeyAlgoritm {
         }
         return key;
     }
-}
+
+
+
+    class Solution {
+        public String longestCommonPrefix(String[] strs) {
+            String prefStr=strs[0];
+            String returnStr="";
+            for (int i=1; i<strs.length; i++){
+                for (int j=0;j<prefStr.length();j++){
+                    if (strs[i].contains(prefStr.substring(0,j))) returnStr=prefStr.substring(0,j);
+                    else break;
+                }
+
+            } return returnStr;
+        }
+    }
+
+    }

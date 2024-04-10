@@ -86,7 +86,7 @@ public class VerificationTest {
 
     @Test
     @Tag("TypeAccountPath(")
-    @DisplayName("Не корректный тип")
+    @DisplayName("Некорректный тип")
     public void testTypeAccountPathNotFound() {
         String actual = Verification.typeAccountPath(numberNotFoundType, ParserType.getJsonFile(pathJson));
         // assertEquals(expected, actual);
@@ -103,7 +103,7 @@ public class VerificationTest {
 
     @Test
     @Tag("curAccountPath")
-    @DisplayName("Не корректная валюта '000'. не найдена в справочнике")
+    @DisplayName("Некорректная валюта '000'. не найдена в справочнике")
     public void testCurAccountPathNotFound() {
         String actual = Verification.curAccountPath(numberNotFoundCurZero, pathXml);
         assertTrue(actual.contains("валюта счета не найдена в справочнике"));
@@ -111,7 +111,7 @@ public class VerificationTest {
 
     @Test
     @Tag("curAccountPath")
-    @DisplayName("Не корректная валюта '000'. не найдена в справочнике")
+    @DisplayName("Некорректная валюта '000'. не найдена в справочнике")
     public void testCurAccountPathNotFoundCur() {
         String actual = Verification.curAccountPath(numberNotFoundCur, pathXml);
         assertTrue(actual.contains("валюта счета не найдена в справочнике"));
